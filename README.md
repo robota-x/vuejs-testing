@@ -1,0 +1,1 @@
+Sample Django app with some Vue.js stuff in it.
