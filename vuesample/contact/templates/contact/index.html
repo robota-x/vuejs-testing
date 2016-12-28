@@ -3,9 +3,10 @@
 <section id="contact-form">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="{% static 'js/contact.js' %}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
     {% verbatim %}
-    <div id="office-map">{{message}}</div>
+    <div id="office-map" style="height: 800px; width: 100%;"></div>
     <div id="office-list"></div>
     {% endverbatim %}
 </section>
