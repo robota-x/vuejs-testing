@@ -6,6 +6,9 @@ class EnquiryType(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255, blank=True, null=True)
 
+    def __str__(self):
+        return '{0}: {1}'.format(self.name, Truncator(self.description).chars(70))
+
 
 class Enquiry(models.Model):
     first_name = models.CharField(max_length=255)
@@ -19,4 +22,4 @@ class Enquiry(models.Model):
     type = models.ForeignKey(EnquiryType)
 
     def __str__(self):
-        return '{0} {1}: {2}'.format(self.first_name, self.last_name, Truncator(self.text).chars(50))
+        return '{0} {1}: {2}'.format(self.first_name, self.last_name, Truncator(self.text).chars(70))
