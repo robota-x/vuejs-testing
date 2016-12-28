@@ -1,7 +1,9 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
 
 from . import forms
+from . import models
 
 
 def index(request):
@@ -17,3 +19,9 @@ def index(request):
 
     return render(request, 'contact/index.html', {'form': form})
 
+def office(request, id=None):
+    if id:
+        offices = get_object_or_404(models.Office, pk=id)
+    else:
+        offices = models.Office.objects.all()
+    return JsonResponse(list(offices), safe=False)

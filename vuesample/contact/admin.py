@@ -10,3 +10,7 @@ class EnquiryTypeAdmin(admin.ModelAdmin):
 @admin.register(models.Enquiry)
 class EnquiryAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(models.Office)
+class OfficeAdmin(admin.ModelAdmin):
+    pass

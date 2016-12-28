@@ -23,3 +23,14 @@ class Enquiry(models.Model):
 
     def __str__(self):
         return '{0} {1}: {2}'.format(self.first_name, self.last_name, Truncator(self.text).chars(70))
+
+
+class Office(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, blank=True, null=True)
+
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def __str__(self):
+        return self.name
