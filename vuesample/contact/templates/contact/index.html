@@ -1,13 +1,18 @@
 {% load static %}
 
 <section id="contact-form">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="{% static 'js/contact.js' %}"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 
     {% verbatim %}
-    <div id="office-map" style="height: 800px; width: 100%;"></div>
-    <div id="office-list"></div>
+    <div id="office-list">
+        {{message}}
+        <input v-model="message">
+        <button v-on:click="getOffices">Get Offices</button>
+    </div>
     {% endverbatim %}
-</section>
 
+    <div id="office-map" style="height: 800px; width: 100%;"></div>
+</section>

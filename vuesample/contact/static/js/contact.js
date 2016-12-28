@@ -17,11 +17,26 @@ function initMap() {
 
 // vue.js
 window.onload = function() {
-    var app = new Vue({
+    var message = 'Hello Vue!';
+
+    var officeList = new Vue({
         el: '#office-list',
         data: {
-            message: 'Hello Vue!'
+            message: message
+        },
+        methods: {
+            getOffices: getOffices
         }
     });
+
+    function getOffices() {
+        var requestHandler = $.get( "/offices")
+          .done(function(res) {
+              officeList.message = res;
+          })
+          .fail(function() {
+              officeList.message = 'loading failed'
+          })
+    }
 };
 
