@@ -1,9 +1,12 @@
+{% load static %}
+
 <section id="contact-form">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    
-    <h2>hi, complete the form</h2>
-    <form>
-        {{form}}
-        <button class="btn">Send message</button>
-    </form>
+    <script src="{% static 'js/contact.js' %}"></script>
+
+    {% verbatim %}
+    <div id="office-map">{{message}}</div>
+    <div id="office-list"></div>
+    {% endverbatim %}
 </section>
+
